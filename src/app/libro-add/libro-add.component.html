@@ -1,0 +1,66 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/libros']"><mat-icon>list</mat-icon></a>
+  </div>
+  <mat-card class="example-card">
+    <form [formGroup]="libroForm" (ngSubmit)="onFormSubmit(libroForm.value)">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Titulo del libro, longitud min 2" formControlName="titulo"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!libroForm.get('titulo').valid && libroForm.get('titulo').touched">Por digite titulo del libro </span>
+        </mat-error>
+      </mat-form-field>
+ 
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Sinopsis, longitud min 5" formControlName="sinopsis"
+               [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!libroForm.get('sinopsis').valid && libroForm.get('sinopsis').touched">Por digite sinopsis</span>
+        </mat-error>
+      </mat-form-field>
+        
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Editorial" [(value)]="seleccionada" name="editorial" 
+         formControlName="editorialesId"  >
+         <mat-option>Seleccione...</mat-option>
+          <mat-option *ngFor="let item of dataEditorial" [value]="item.id">
+            {{item.nombre}}
+          </mat-option>
+        </mat-select>
+          <mat-error>
+          <span *ngIf="!libroForm.get('editorialesId').valid  && libroForm.get('editorialesId').hasError('required')">Seleccione una opcion</span>
+        </mat-error>
+      </mat-form-field>
+   
+        <mat-select-autocomplete class="example-full-width"    
+          [placeholder]="'Options Selection'"
+          [options]="dataAutor"
+          [display]="'nombre'"
+          [value]="'id'"
+          [multiple]='true'
+          [labelCount]="1"
+          [selectedOptions]="selectedOptions"
+          (selectionChange)="getSelectedOptions($event)">
+      </mat-select-autocomplete>    
+    
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="number" placeholder="Numero de paginas" formControlName="nPagina" 
+        [errorStateMatcher]="matcher" min="2">
+        <mat-error>
+          <span *ngIf="!libroForm.get('nPagina').valid && libroForm.get('nPagina').touched">Por digite numero de paginas</span>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button type="submit" [disabled]="!libroForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+      </div>
+    </form>
+  </mat-card>
+</div>
