@@ -11,7 +11,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 @Component({
   selector: 'app-libro-add',
   templateUrl: './libro-add.component.html',
-  styleUrls: ['./libro-add.component.scss']
+  styleUrls: ['./libro-add.component.css']
 })
 export class LibroAddComponent implements OnInit {
   @ViewChild(SelectAutocompleteComponent) multiSelect: SelectAutocompleteComponent;
@@ -58,7 +58,8 @@ export class LibroAddComponent implements OnInit {
            let id = res['isbn'];
            console.log(id);
            this.isLoadingResults = false;
-           this.router.navigate(['/libro-details', id]);
+           //this.router.navigate(['/libro-details', id]);
+           this.router.navigate(['/libros']);
          }, (err) => {
            console.log(err);
            this.isLoadingResults = false;

@@ -10,7 +10,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 @Component({
   selector: 'app-libro-edit',
   templateUrl: './libro-edit.component.html',
-  styleUrls: ['./libro-edit.component.scss']
+  styleUrls: ['./libro-edit.component.css']
 })
 export class LibroEditComponent implements OnInit {
 

@@ -8,7 +8,8 @@ import { Libro } from '../entidades/libros';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "https://localhost:44330/api/libros";
+//const apiUrl = "https://localhost:44330/api/libros";
+const apiUrl = "https://localhost:5001/api/libros";
 
 @Injectable({
   providedIn: 'root'

@@ -8,7 +8,7 @@ import { Editorial } from '../entidades/editoriales';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "https://localhost:44330/api/Editoriales";
+const apiUrl = "https://localhost:5001/api/Editoriales";
 
 @Injectable({
   providedIn: 'root'

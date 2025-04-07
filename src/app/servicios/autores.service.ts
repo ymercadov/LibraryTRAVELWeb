@@ -7,7 +7,7 @@ import { Autor } from '../entidades/autores';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "https://localhost:44330/api/autores";
+const apiUrl = "https://localhost:5001/api/autores";
 
 @Injectable({
   providedIn: 'root'
